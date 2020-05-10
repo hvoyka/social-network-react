@@ -1,0 +1,14 @@
+
+.nav{
+  grid-area: n;
+  background-color: bisque;
+}
+.list{
+  list-style: none;
+}
+.item{
+  color: aqua
+}
+.item.active{
+  color: red;
+}
