@@ -1,12 +1,12 @@
 import React from 'react';
-import s from './MyPosts.module.css';
+import css from './MyPosts.module.css';
 import Post from './Post/Post';
 
 const MyPosts = (props) => {
   let postComponentsArr = props.posts.map((p) => <Post message={p.message} likesCount={p.likesCount} />);
 
   return (
-    <div className={s.wrap}>
+    <div className={css.wrap}>
      <h3>My Posts</h3> 
       <div>
         <div>
@@ -14,7 +14,7 @@ const MyPosts = (props) => {
         </div>
         <button>Add post</button>
       </div>
-      <div className={s.posts}>
+      <div className={css.posts}>
         {postComponentsArr}  
        </div>
     </div>);
