@@ -3,7 +3,8 @@ import css from './MyPosts.module.css';
 import Post from './Post/Post';
 
 const MyPosts = (props) => {
-  let postComponentsArr = props.posts.map((p) => <Post message={p.message} likesCount={p.likesCount} />);
+  console.log('myposts', props.posts)
+  let postComponentsArr = props.posts.map((p) => <Post message={p.message} likesCount={p.likesCount}  key={p.id}/>);
 
   return (
     <div className={css.wrap}>
