@@ -12,8 +12,7 @@ import Settings from './components/Settings/Settings';
 
 
 function App(props) {
-  console.log('app', props)
-  let posts = props.posts;
+
   return (
     <BrowserRouter>
       <div className='app-wrapper'>
@@ -22,10 +21,12 @@ function App(props) {
         <div className='app-wrapper__content'>
         
           <Route path="/dialogs">
-              <Dialogs dialogs={props.dialogs} messages={props.messages} />
+              <Dialogs state={props.state.dialogsPage} 
+               />
           </Route>
+
           <Route path="/profile">
-              <Profile posts={props.posts} />
+              <Profile state={props.state.profilePage} />
           </Route>
 
           <Route path='/news' component={News} />
