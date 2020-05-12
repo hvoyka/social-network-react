@@ -8,7 +8,7 @@ const MyPosts = () => {
     {id: 1, message: 'Hi, how are you?', likesCount: 12},
     {id: 2, message: 'It\'s my first post', likesCount: 5},
   ];
-  let postComponentsArr = posts.map((item) => <Post message={item.message} likesCount={item.likesCount} />);
+  let postComponentsArr = posts.map((p) => <Post message={p.message} likesCount={p.likesCount} />);
 
   return (
     <div className={s.wrap}>
