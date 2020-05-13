@@ -25,8 +25,8 @@ let state = {
     friends: [
       {id: 1, name: 'Stas'},
       {id: 2, name: 'Olya'},
-      {id: 2, name: 'Petya'},
-      {id: 2, name: 'Anya'},
+      {id: 3, name: 'Petya'},
+      {id: 4, name: 'Anya'},
     ]
   } 
 }

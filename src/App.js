@@ -17,7 +17,7 @@ function App(props) {
     <BrowserRouter>
       <div className='app-wrapper'>
         <Header />
-        <Sidebar />
+        <Sidebar state={props.state.sidebar}/>
         <div className='app-wrapper__content'>
 
           <Route path="/dialogs">
