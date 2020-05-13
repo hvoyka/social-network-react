@@ -1,0 +1,7 @@
+
+.sidebar{
+  grid-area: n;
+  background-color: seagreen;
+  display: flex;
+  flex-direction: column;
+}
