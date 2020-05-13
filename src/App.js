@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Route, BrowserRouter } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Sidebar from './components/Sidebar/Sidebar';
 
@@ -14,7 +14,6 @@ import Settings from './components/Settings/Settings';
 function App(props) {
 
   return (
-    <BrowserRouter>
       <div className='app-wrapper'>
         <Header />
         <Sidebar state={props.state.sidebar}/>
@@ -32,7 +31,6 @@ function App(props) {
           <Route path='/settings' component={Settings} />
         </div>
       </div>
-    </BrowserRouter>
   );
 }
 

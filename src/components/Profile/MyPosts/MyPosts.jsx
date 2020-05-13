@@ -3,9 +3,11 @@ import css from './MyPosts.module.css';
 import Post from './Post/Post';
 
 const MyPosts = (props) => {
-  console.log('myposts', props.posts)
-  let postComponentsArr = props.posts.map((p) => <Post message={p.message} likesCount={p.likesCount}  key={p.id}/>);
 
+  let postComponentsArr = props.posts.map((p) => <Post message={p.message} likesCount={p.likesCount}  key={p.id}/>);
+  const addPost = () => {
+    alert('hehey');
+  }
   return (
     <div className={css.wrap}>
      <h3>My Posts</h3> 
@@ -13,7 +15,7 @@ const MyPosts = (props) => {
         <div>
           <textarea></textarea>
         </div>
-        <button>Add post</button>
+        <button onClick={addPost}>Add post</button>
       </div>
       <div className={css.posts}>
         {postComponentsArr}  
