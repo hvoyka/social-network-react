@@ -19,6 +19,7 @@ let state = {
     ]
   },
   profilePage: {
+    newPostMessage: 'hello!',
     posts: [
       {id: 1, message: 'Hi, how are you?', likesCount: 12},
       {id: 2, message: 'It\'s my first post', likesCount: 5},
@@ -43,5 +44,9 @@ let addPost = (postMessage) => {
     state.profilePage.posts.push(newPost);
     rerenderEntireTree(state);
 }
+let typeText = (text) => {
+  state.profilePage.newPostMessage = text;
+  rerenderEntireTree(state);
+}
 
-export {state, addPost};
+export {state, addPost, typeText};

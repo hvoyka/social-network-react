@@ -23,7 +23,7 @@ function App(props) {
               <Dialogs state={props.state.dialogsPage}/>
           </Route>
           <Route path="/profile">
-              <Profile state={props.state.profilePage} addPost={props.addPost}/>
+              <Profile profilePage={props.state.profilePage} addPost={props.addPost} typeText={props.typeText}/>
           </Route>
 
           <Route path='/news' component={News} />
