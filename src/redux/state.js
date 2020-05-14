@@ -16,7 +16,8 @@ let state = {
       {id: 2, message: 'How is your work?'},
       {id: 3, message: 'Yo!'},
       {id: 4, message: 'Yo!'},
-    ]
+    ],
+    newDialogMessage: 'Dialog msg!'
   },
   profilePage: {
     newPostMessage: 'hello!',
@@ -34,6 +35,20 @@ let state = {
     ]
   } 
 }
+let addDialogMessage = () => {
+  let newMessage = {
+    id: 5,
+    message: state.dialogsPage.newDialogMessage
+  }
+  state.dialogsPage.messages.push(newMessage);
+  state.dialogsPage.newDialogMessage = "";
+  rerenderEntireTree(state);
+}
+
+let typeDialogText = (text) => {
+  state.dialogsPage.newDialogMessage = text;
+  rerenderEntireTree(state);
+}
 
 let addPost = () => {
     let newPost = {
@@ -42,6 +57,7 @@ let addPost = () => {
       likesCount: 0
     }
     state.profilePage.posts.push(newPost);
+    state.profilePage.newPostMessage = "";
     rerenderEntireTree(state);
 }
 let typeText = (text) => {
@@ -49,4 +65,4 @@ let typeText = (text) => {
   rerenderEntireTree(state);
 }
 
-export {state, addPost, typeText};
+export {state, addPost, typeText, addDialogMessage, typeDialogText};

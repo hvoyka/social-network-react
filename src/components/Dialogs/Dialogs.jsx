@@ -3,15 +3,21 @@ import css from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 
-const MyMessage = () => {
+const MyMessage = (props) => {
   let myMessage = React.createRef();
-  const sendMessage= () =>{
-    alert(myMessage.current.value);
+
+  const addDialogMessage= () =>{
+    props.addDialogMessage();
+  }
+
+  const typeDialogMessage= () =>{  
+    let text = myMessage.current.value;    
+    props.typeDialogText(text);    
   }
   return (
     <div>
-      <textarea ref={myMessage}></textarea>
-      <button onClick={sendMessage}>Send</button>
+      <textarea onChange={typeDialogMessage} ref={myMessage}></textarea>
+      <button onClick={addDialogMessage}>Send</button>
     </div>
   );
 };
@@ -31,7 +37,7 @@ const Dialogs = (props) => {
       <ul className={css.messages}>
         {messageComponentsArr}
       </ul>
-      <MyMessage/>
+      <MyMessage addDialogMessage={props.addDialogMessage} typeDialogText={props.typeDialogText}/>
     </div>
   );
 }

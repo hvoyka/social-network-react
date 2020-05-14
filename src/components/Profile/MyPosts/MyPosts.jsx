@@ -9,7 +9,6 @@ const MyPosts = (props) => {
 
   const addPost = () => {
     props.addPost();
-    props.typeText("");
   }
   const typeText = () => {
     let text = newPostElement.current.value;    
