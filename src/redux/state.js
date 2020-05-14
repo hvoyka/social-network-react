@@ -35,10 +35,10 @@ let state = {
   } 
 }
 
-let addPost = (postMessage) => {
+let addPost = () => {
     let newPost = {
       id: 5,
-      message: postMessage,
+      message: state.profilePage.newPostMessage,
       likesCount: 0
     }
     state.profilePage.posts.push(newPost);
