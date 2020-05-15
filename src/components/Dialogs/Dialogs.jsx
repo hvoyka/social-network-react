@@ -4,19 +4,19 @@ import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 
 const MyMessage = (props) => {
-  let myMessage = React.createRef();
 
   const addDialogMessage= () =>{
     props.addDialogMessage();
   }
 
-  const typeDialogMessage= () =>{  
-    let text = myMessage.current.value;
+  const typeDialogMessage= (evt) =>{  
+    let text = evt.target.value;
+    console.log(text)
     props.typeDialogText(text);    
   }
   return (
     <div>
-      <textarea onChange={typeDialogMessage} ref={myMessage} value={props.newDialogMessage}></textarea>
+      <textarea onChange={typeDialogMessage} value={props.newDialogMessage}></textarea>
       <button onClick={addDialogMessage}>Send</button>
     </div>
   );

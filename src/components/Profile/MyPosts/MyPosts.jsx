@@ -5,13 +5,12 @@ import Post from './Post/Post';
 const MyPosts = (props) => {
 
   let postComponentsArr = props.profilePage.posts.map((p) => <Post message={p.message} likesCount={p.likesCount}  key={p.id}/>);
-  let newPostElement = React.createRef();
-
+  
   const addPost = () => {
     props.addPost();
   }
-  const typeText = () => {
-    let text = newPostElement.current.value;    
+  const typeText = (evt) => {
+    let text = evt.target.value;    
     props.typeText(text);    
   }
   return (
@@ -19,7 +18,7 @@ const MyPosts = (props) => {
      <h3>My Posts</h3> 
       <div>
         <div>
-          <textarea onChange={typeText} ref={newPostElement} value={props.profilePage.newPostMessage}/>
+          <textarea onChange={typeText} value={props.profilePage.newPostMessage}/>
         </div>
         <button onClick={addPost}>Add post</button>
       </div>
