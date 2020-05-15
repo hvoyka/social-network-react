@@ -11,7 +11,6 @@ const MyMessage = (props) => {
 
   const typeDialogMessage= (evt) =>{  
     let text = evt.target.value;
-    console.log(text)
     props.typeDialogText(text);    
   }
   return (
