@@ -36,13 +36,15 @@ let state = {
   } 
 }
 let addDialogMessage = () => {
-  let newMessage = {
-    id: 5,
-    message: state.dialogsPage.newDialogMessage
-  }
-  state.dialogsPage.messages.push(newMessage);
-  state.dialogsPage.newDialogMessage = "";
-  rerenderEntireTree(state);
+  if(state.dialogsPage.newDialogMessage){
+    let newMessage = {
+      id: 5,
+      message: state.dialogsPage.newDialogMessage
+    }
+    state.dialogsPage.messages.push(newMessage);
+    state.dialogsPage.newDialogMessage = "";
+    rerenderEntireTree(state);
+  }  
 }
 
 let typeDialogText = (text) => {
