@@ -30,43 +30,41 @@ let state = {
       {id: 3, name: 'Petya'},
       {id: 4, name: 'Anya'},
     ]
-  } 
-}
-const addDialogMessage = () => {
-  if(state.dialogsPage.newDialogMessage){
-    let newMessage = {
-      id: 5,
-      message: state.dialogsPage.newDialogMessage
-    }
-    state.dialogsPage.messages.push(newMessage);
-    state.dialogsPage.newDialogMessage = "";
-    rerenderEntireTree(state);
-  }  
-}
-
-const typeDialogText = (text) => {
-  state.dialogsPage.newDialogMessage = text;
-  rerenderEntireTree(state);
-}
-
-const addPost = () => {
+  },
+ addDialogMessage: function  () {
+    if(state.dialogsPage.newDialogMessage){
+      let newMessage = {
+        id: 5,
+        message: this.dialogsPage.newDialogMessage
+      }
+      this.dialogsPage.messages.push(newMessage);
+      this.dialogsPage.newDialogMessage = "";
+      this.rerenderEntireTree(this);
+    }  
+  },
+  typeDialogText: function (text){
+    state.dialogsPage.newDialogMessage = text;
+    this.rerenderEntireTree(this);
+  },
+  addPost: function() {
     let newPost = {
       id: 5,
-      message: state.profilePage.newPostMessage,
+      message: this.profilePage.newPostMessage,
       likesCount: 0
     }
-    state.profilePage.posts.push(newPost);
-    state.profilePage.newPostMessage = "";
-    rerenderEntireTree(state);
+    this.profilePage.posts.push(newPost);
+    this.profilePage.newPostMessage = "";
+    this.rerenderEntireTree(this);
+  },  
+  typeText: function(text)  {
+    this.profilePage.newPostMessage = text;
+    this.rerenderEntireTree(this);
+  },
+  rerenderEntireTree: function  () {
+    console.log("State is not changed!");
+  },
+  subscribe: function (observer) {
+    this.rerenderEntireTree = observer;
+  }
 }
-const typeText = (text) => {
-  state.profilePage.newPostMessage = text;
-  rerenderEntireTree(state);
-}
-let rerenderEntireTree = () => {
-  console.log("State is not changed!");
-}
-const subscribe = (observer) => {
-  rerenderEntireTree = observer;
-}
-export {state, subscribe,  addPost, typeText, addDialogMessage, typeDialogText};
+export {state};

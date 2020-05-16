@@ -4,20 +4,20 @@ import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 
-import {state, subscribe,  addPost, typeText,  addDialogMessage, typeDialogText} from './redux/state'
+import {state} from './redux/state'
 
 let rerenderEntireTree = (state) => {
   ReactDOM.render(
     <React.StrictMode>
         <BrowserRouter>
-         <App state={state} addPost={addPost} typeText={typeText}  addDialogMessage={addDialogMessage} typeDialogText={typeDialogText}/>
+         <App state={state} addPost={state.addPost.bind(state)} typeText={state.typeText.bind(state)}  addDialogMessage={state.addDialogMessage.bind(state)} typeDialogText={state.typeDialogText.bind(state)}/>
         </BrowserRouter>
     </React.StrictMode>,
     document.getElementById('root')
   );  
 }
 
-subscribe(rerenderEntireTree);
+state.subscribe(rerenderEntireTree);
 
-rerenderEntireTree(state);
+state.rerenderEntireTree(state);
 
