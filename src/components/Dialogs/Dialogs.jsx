@@ -6,12 +6,14 @@ import Message from './Message/Message';
 const MyMessage = (props) => {
 
   const addDialogMessage= () =>{
-    props.addDialogMessage();
+    //props.addDialogMessage();
+    props.dispatch({type:'ADD-DIALOG-MESSAGE'});
   }
 
   const typeDialogMessage= (evt) =>{  
     let text = evt.target.value;
-    props.typeDialogText(text);    
+    //props.typeDialogText(text);    
+    props.dispatch({type:'TYPE-DIALOG-TEXT', text: text});
   }
   return (
     <div>
@@ -36,7 +38,7 @@ const Dialogs = (props) => {
       <ul className={css.messages}>
         {messageComponentsArr}
       </ul>
-      <MyMessage addDialogMessage={props.addDialogMessage} typeDialogText={props.typeDialogText} newDialogMessage={props.dialogsPage.newDialogMessage}/>
+      <MyMessage dispatch={props.dispatch} newDialogMessage={props.dialogsPage.newDialogMessage}/>
     </div>
   );
 }

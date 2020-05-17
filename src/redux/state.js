@@ -33,43 +33,43 @@ let store = {
       ]
     }
   },
-  getState(){
-    return this._state;
-  },
-  addDialogMessage() {
-    if(this._state.dialogsPage.newDialogMessage){
-      let newMessage = {
-        id: 5,
-        message: this._state.dialogsPage.newDialogMessage
-      }
-      this._state.dialogsPage.messages.push(newMessage);
-      this._state.dialogsPage.newDialogMessage = "";
-      this._callSubscriber(this._state);
-    }  
-  },
-  typeDialogText(text){
-    this._state.dialogsPage.newDialogMessage = text;
-    this._callSubscriber(this._state);
-  },
-  addPost() {
-    let newPost = {
-      id: 5,
-      message: this._state.profilePage.newPostMessage,
-      likesCount: 0
-    }
-    this._state.profilePage.posts.push(newPost);
-    this._state.profilePage.newPostMessage = "";
-    this._callSubscriber(this._state);
-  },  
-  typeText(text)  {
-    this._state.profilePage.newPostMessage = text;
-    this._callSubscriber(this._state);
-  },
   _callSubscriber() {
     console.log("State is not changed!");
   },
+  getState(){
+    return this._state;
+  },
   subscribe(observer) {
     this._callSubscriber = observer;
-  }
+  },
+  dispatch (action) { //{type: '', text: ''}
+    if(action.type === 'ADD-DIALOG-MESSAGE'){
+      if(this._state.dialogsPage.newDialogMessage){
+        let newMessage = {
+          id: 5,
+          message: this._state.dialogsPage.newDialogMessage
+        }
+        this._state.dialogsPage.messages.push(newMessage);
+        this._state.dialogsPage.newDialogMessage = "";
+        this._callSubscriber(this._state);
+      }  
+    } else if (action.type === 'TYPE-DIALOG-TEXT') {
+      this._state.dialogsPage.newDialogMessage = action.text;
+    this._callSubscriber(this._state);
+    } else if (action.type === 'ADD-POST') {
+      let newPost = {
+        id: 5,
+        message: this._state.profilePage.newPostMessage,
+        likesCount: 0
+      }
+      this._state.profilePage.posts.push(newPost);
+      this._state.profilePage.newPostMessage = "";
+      this._callSubscriber(this._state);
+    } else if (action.type === 'TYPE-POST-TEXT') {
+      this._state.profilePage.newPostMessage = action.text;
+      this._callSubscriber(this._state);
+    }
+  },
+
 }
 export {store};

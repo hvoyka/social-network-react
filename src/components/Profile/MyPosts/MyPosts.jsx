@@ -7,18 +7,20 @@ const MyPosts = (props) => {
   let postComponentsArr = props.profilePage.posts.map((p) => <Post message={p.message} likesCount={p.likesCount}  key={p.id}/>);
   
   const addPost = () => {
-    props.addPost();
+    //props.addPost();
+    props.dispatch({type:'ADD-POST'});
   }
-  const typeText = (evt) => {
+  const typePostText = (evt) => {
     let text = evt.target.value;    
-    props.typeText(text);    
+    //props.typeText(text);    
+    props.dispatch({type:'TYPE-POST-TEXT', text: text});
   }
   return (
     <div className={css.wrap}>
      <h3>My Posts</h3> 
       <div>
         <div>
-          <textarea onChange={typeText} value={props.profilePage.newPostMessage}/>
+          <textarea onChange={typePostText} value={props.profilePage.newPostMessage}/>
         </div>
         <button onClick={addPost}>Add post</button>
       </div>

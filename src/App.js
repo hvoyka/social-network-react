@@ -22,14 +22,13 @@ function App(props) {
           <Route path="/dialogs">
               <Dialogs 
               dialogsPage={props.state.dialogsPage}
-              addDialogMessage={props.addDialogMessage}
-              typeDialogText={props.typeDialogText}/>
+              dispatch={props.dispatch}
+              />
           </Route>
           <Route path="/profile">
               <Profile 
               profilePage={props.state.profilePage} 
-              addPost={props.addPost} 
-              typeText={props.typeText}
+              dispatch={props.dispatch}              
              />
           </Route>
 
