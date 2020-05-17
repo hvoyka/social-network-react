@@ -1,70 +1,75 @@
-let state = {
-  dialogsPage: {
-    dialogs: [
-      {id: 1, name: 'Dimych'},
-      {id: 2, name: 'Andrey'},
-      {id: 3, name: 'Sveta'},
-      {id: 4, name: 'Sasha'},
-      {id: 5, name: 'Victor'},
-      {id: 6, name: 'Valera'},
-    ],
-    messages: [
-      {id: 1, message: 'Hello'},
-      {id: 2, message: 'How is your work?'},
-      {id: 3, message: 'Yo!'},
-      {id: 4, message: 'Yo!'},
-    ],
-    newDialogMessage: 'Dialog msg!'
+let store = {
+  _state: {
+    dialogsPage: {
+      dialogs: [
+        {id: 1, name: 'Dimych'},
+        {id: 2, name: 'Andrey'},
+        {id: 3, name: 'Sveta'},
+        {id: 4, name: 'Sasha'},
+        {id: 5, name: 'Victor'},
+        {id: 6, name: 'Valera'},
+      ],
+      messages: [
+        {id: 1, message: 'Hello'},
+        {id: 2, message: 'How is your work?'},
+        {id: 3, message: 'Yo!'},
+        {id: 4, message: 'Yo!'},
+      ],
+      newDialogMessage: 'Dialog msg!'
+    },
+    profilePage: {
+      newPostMessage: 'hello!',
+      posts: [
+        {id: 1, message: 'Hi, how are you?', likesCount: 12},
+        {id: 2, message: 'It\'s my first post', likesCount: 5},
+      ]
+    },
+    sidebar: {
+      friends: [
+        {id: 1, name: 'Stas'},
+        {id: 2, name: 'Olya'},
+        {id: 3, name: 'Petya'},
+        {id: 4, name: 'Anya'},
+      ]
+    }
   },
-  profilePage: {
-    newPostMessage: 'hello!',
-    posts: [
-      {id: 1, message: 'Hi, how are you?', likesCount: 12},
-      {id: 2, message: 'It\'s my first post', likesCount: 5},
-    ]
+  getState(){
+    return this._state;
   },
-  sidebar: {
-    friends: [
-      {id: 1, name: 'Stas'},
-      {id: 2, name: 'Olya'},
-      {id: 3, name: 'Petya'},
-      {id: 4, name: 'Anya'},
-    ]
-  },
- addDialogMessage: function  () {
-    if(state.dialogsPage.newDialogMessage){
+  addDialogMessage() {
+    if(this._state.dialogsPage.newDialogMessage){
       let newMessage = {
         id: 5,
-        message: this.dialogsPage.newDialogMessage
+        message: this._state.dialogsPage.newDialogMessage
       }
-      this.dialogsPage.messages.push(newMessage);
-      this.dialogsPage.newDialogMessage = "";
-      this.rerenderEntireTree(this);
+      this._state.dialogsPage.messages.push(newMessage);
+      this._state.dialogsPage.newDialogMessage = "";
+      this._callSubscriber(this._state);
     }  
   },
-  typeDialogText: function (text){
-    state.dialogsPage.newDialogMessage = text;
-    this.rerenderEntireTree(this);
+  typeDialogText(text){
+    this._state.dialogsPage.newDialogMessage = text;
+    this._callSubscriber(this._state);
   },
-  addPost: function() {
+  addPost() {
     let newPost = {
       id: 5,
-      message: this.profilePage.newPostMessage,
+      message: this._state.profilePage.newPostMessage,
       likesCount: 0
     }
-    this.profilePage.posts.push(newPost);
-    this.profilePage.newPostMessage = "";
-    this.rerenderEntireTree(this);
+    this._state.profilePage.posts.push(newPost);
+    this._state.profilePage.newPostMessage = "";
+    this._callSubscriber(this._state);
   },  
-  typeText: function(text)  {
-    this.profilePage.newPostMessage = text;
-    this.rerenderEntireTree(this);
+  typeText(text)  {
+    this._state.profilePage.newPostMessage = text;
+    this._callSubscriber(this._state);
   },
-  rerenderEntireTree: function  () {
+  _callSubscriber() {
     console.log("State is not changed!");
   },
-  subscribe: function (observer) {
-    this.rerenderEntireTree = observer;
+  subscribe(observer) {
+    this._callSubscriber = observer;
   }
 }
-export {state};
+export {store};
