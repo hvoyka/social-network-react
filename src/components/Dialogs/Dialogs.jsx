@@ -3,17 +3,17 @@ import css from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 
+import {addDialogMessageActionCreator, typeDialogMessageActionCreator} from '../../redux/state'
+
 const MyMessage = (props) => {
 
   const addDialogMessage= () =>{
-    //props.addDialogMessage();
-    props.dispatch({type:'ADD-DIALOG-MESSAGE'});
+    props.dispatch(addDialogMessageActionCreator());
   }
 
   const typeDialogMessage= (evt) =>{  
     let text = evt.target.value;
-    //props.typeDialogText(text);    
-    props.dispatch({type:'TYPE-DIALOG-TEXT', text: text});
+    props.dispatch(typeDialogMessageActionCreator(text));
   }
   return (
     <div>

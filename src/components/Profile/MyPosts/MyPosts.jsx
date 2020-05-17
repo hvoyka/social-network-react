@@ -2,18 +2,17 @@ import React from 'react';
 import css from './MyPosts.module.css';
 import Post from './Post/Post';
 
+import {addPostActionCreator, TypePostTextActionCreator} from '../../../redux/state'
 const MyPosts = (props) => {
 
   let postComponentsArr = props.profilePage.posts.map((p) => <Post message={p.message} likesCount={p.likesCount}  key={p.id}/>);
   
   const addPost = () => {
-    //props.addPost();
-    props.dispatch({type:'ADD-POST'});
+    props.dispatch(addPostActionCreator());
   }
   const typePostText = (evt) => {
     let text = evt.target.value;    
-    //props.typeText(text);    
-    props.dispatch({type:'TYPE-POST-TEXT', text: text});
+    props.dispatch(TypePostTextActionCreator(text));
   }
   return (
     <div className={css.wrap}>

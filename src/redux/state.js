@@ -69,7 +69,20 @@ let store = {
       this._state.profilePage.newPostMessage = action.text;
       this._callSubscriber(this._state);
     }
-  },
+  }
+}
 
+
+export const addPostActionCreator = () => {
+  return {type:'ADD-POST'};
+}
+export const TypePostTextActionCreator = (text) => {
+  return {type:'TYPE-POST-TEXT', text: text};
+}
+export const addDialogMessageActionCreator = () => {
+  return {type:'ADD-DIALOG-MESSAGE'};
+}
+export const typeDialogMessageActionCreator = (text) => {
+  return {type:'TYPE-DIALOG-TEXT', text: text};
 }
 export {store};
