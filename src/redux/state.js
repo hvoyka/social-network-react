@@ -1,3 +1,8 @@
+const ADD_POST = 'ADD-POST';
+const TYPE_POST_TEXT = 'TYPE-POST-TEXT';
+const ADD_DIALOG_MESSAGE = 'ADD-DIALOG-MESSAGE';
+const TYPE_DIALOG_TEXT = 'TYPE-DIALOG-TEXT';
+
 let store = {
   _state: {
     dialogsPage: {
@@ -42,8 +47,8 @@ let store = {
   subscribe(observer) {
     this._callSubscriber = observer;
   },
-  dispatch (action) { //{type: '', text: ''}
-    if(action.type === 'ADD-DIALOG-MESSAGE'){
+  dispatch (action) { 
+    if(action.type === ADD_DIALOG_MESSAGE){
       if(this._state.dialogsPage.newDialogMessage){
         let newMessage = {
           id: 5,
@@ -53,10 +58,10 @@ let store = {
         this._state.dialogsPage.newDialogMessage = "";
         this._callSubscriber(this._state);
       }  
-    } else if (action.type === 'TYPE-DIALOG-TEXT') {
+    } else if (action.type === TYPE_DIALOG_TEXT) {
       this._state.dialogsPage.newDialogMessage = action.text;
     this._callSubscriber(this._state);
-    } else if (action.type === 'ADD-POST') {
+    } else if (action.type === ADD_POST) {
       let newPost = {
         id: 5,
         message: this._state.profilePage.newPostMessage,
@@ -65,7 +70,7 @@ let store = {
       this._state.profilePage.posts.push(newPost);
       this._state.profilePage.newPostMessage = "";
       this._callSubscriber(this._state);
-    } else if (action.type === 'TYPE-POST-TEXT') {
+    } else if (action.type === TYPE_POST_TEXT) {
       this._state.profilePage.newPostMessage = action.text;
       this._callSubscriber(this._state);
     }
@@ -73,16 +78,17 @@ let store = {
 }
 
 
+
 export const addPostActionCreator = () => {
-  return {type:'ADD-POST'};
+  return {type: ADD_POST};
 }
 export const TypePostTextActionCreator = (text) => {
-  return {type:'TYPE-POST-TEXT', text: text};
+  return {type: TYPE_POST_TEXT, text: text};
 }
 export const addDialogMessageActionCreator = () => {
-  return {type:'ADD-DIALOG-MESSAGE'};
+  return {type: ADD_DIALOG_MESSAGE};
 }
 export const typeDialogMessageActionCreator = (text) => {
-  return {type:'TYPE-DIALOG-TEXT', text: text};
+  return {type: TYPE_DIALOG_TEXT, text: text};
 }
 export {store};
