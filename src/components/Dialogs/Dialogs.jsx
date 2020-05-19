@@ -3,7 +3,7 @@ import css from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 
-import {addDialogMessageActionCreator, typeDialogMessageActionCreator} from '../../redux/state'
+import {addDialogMessageActionCreator, typeDialogMessageActionCreator} from '../../redux/dialog-reducer'
 
 const MyMessage = (props) => {
 
@@ -37,8 +37,9 @@ const Dialogs = (props) => {
 
       <ul className={css.messages}>
         {messageComponentsArr}
+         <MyMessage dispatch={props.dispatch} newDialogMessage={props.dialogsPage.newDialogMessage}/>
       </ul>
-      <MyMessage dispatch={props.dispatch} newDialogMessage={props.dialogsPage.newDialogMessage}/>
+     
     </div>
   );
 }
