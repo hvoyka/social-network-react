@@ -5,7 +5,7 @@ import Header from './components/Header/Header';
 import Sidebar from './components/Sidebar/Sidebar';
 
 import Profile from './components/Profile/Profile';
-import Dialogs from './components/Dialogs/Dialogs';
+import DialogsContainer from './components/Dialogs/DialogsContainer';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
@@ -16,19 +16,17 @@ function App(props) {
   return (
       <div className='app-wrapper'>
         <Header />
-        <Sidebar state={props.state.sidebar}/>
+        {<Sidebar state={props.store.getState().sidebar}/>}
         <div className='app-wrapper__content'>
 
           <Route path="/dialogs">
-              <Dialogs 
-              dialogsPage={props.state.dialogsPage}
-              dispatch={props.dispatch}
+              <DialogsContainer 
+               store={props.store} 
               />
           </Route>
           <Route path="/profile">
               <Profile 
-              profilePage={props.state.profilePage} 
-              dispatch={props.dispatch}              
+              store={props.store}                   
              />
           </Route>
 

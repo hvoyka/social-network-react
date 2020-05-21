@@ -3,22 +3,21 @@ import css from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 
-import {addDialogMessageActionCreator, typeDialogMessageActionCreator} from '../../redux/dialog-reducer'
 
 const MyMessage = (props) => {
 
-  const addDialogMessage= () =>{
-    props.dispatch(addDialogMessageActionCreator());
+  const onAddDialogMessage= () =>{
+    props.addDialogMessage();
   }
 
-  const typeDialogMessage= (evt) =>{  
+  const onTypeDialogMessage= (evt) =>{
     let text = evt.target.value;
-    props.dispatch(typeDialogMessageActionCreator(text));
+    props.typeDialogMessage(text)
   }
   return (
     <div>
-      <textarea onChange={typeDialogMessage} value={props.newDialogMessage}></textarea>
-      <button onClick={addDialogMessage}>Send</button>
+      <textarea onChange={onTypeDialogMessage} value={props.newDialogMessage}></textarea>
+      <button onClick={onAddDialogMessage}>Send</button>
     </div>
   );
 };
@@ -37,7 +36,7 @@ const Dialogs = (props) => {
 
       <ul className={css.messages}>
         {messageComponentsArr}
-         <MyMessage dispatch={props.dispatch} newDialogMessage={props.dialogsPage.newDialogMessage}/>
+         <MyMessage addDialogMessage={props.addDialogMessage} typeDialogMessage={props.typeDialogMessage} newDialogMessage={props.dialogsPage.newDialogMessage}/>
       </ul>
      
     </div>
