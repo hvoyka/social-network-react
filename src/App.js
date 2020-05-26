@@ -9,7 +9,7 @@ import DialogsContainer from './components/Dialogs/DialogsContainer';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
-import Users from './components/Users/Users';
+import UsersContainer from './components/Users/Users';
 
 
 function App(props) {
@@ -27,7 +27,7 @@ function App(props) {
               <Profile/>
           </Route>
           <Route path="/users">
-              <Users/>
+              <UsersContainer/>
           </Route>
 
           <Route path='/news' component={News} />

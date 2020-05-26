@@ -25,7 +25,7 @@ let initialState = {
   ]
 };
 
-export const UsersReducer = (state = initialState, action) => {
+export const usersReducer = (state = initialState, action) => {
   switch (action.type) {
     case FOLLOW:
       return {
