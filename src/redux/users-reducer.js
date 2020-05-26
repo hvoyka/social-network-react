@@ -3,26 +3,7 @@ const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
 
 let initialState = {
-  users: [
-    {
-      id: 1, followed: true, avatarUrl:'https://image.freepik.com/free-vector/_24877-60111.jpg', name: 'Stanislav', status: "GOGOGO!", location: {
-        city: 'Omsk',
-        country: 'Russia'
-      }
-    },
-    {
-      id: 2, followed: true, avatarUrl:'https://image.freepik.com/free-vector/_24877-60111.jpg', name: 'Dmitrich', status: "HEY!", location: {
-        city: 'Minsk',
-        country: 'Belarus'
-      }
-    },
-    {
-      id: 3, followed: false, avatarUrl:'https://image.freepik.com/free-vector/_24877-60111.jpg', name: 'Andrey', status: "hi evereone!", location: {
-        city: 'Moscow',
-        country: 'Russia'
-      }
-    }
-  ]
+  users: []
 };
 
 export const usersReducer = (state = initialState, action) => {
