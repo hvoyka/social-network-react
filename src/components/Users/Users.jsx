@@ -1,6 +1,7 @@
 import React from 'react';
 import css from './users.module.css'
 import * as axios from 'axios';
+import userPhoto from "../../assets/images/user.png"
 const Users = (props) => {
   if(props.users.length === 0){
 
@@ -17,7 +18,7 @@ const Users = (props) => {
     <ul>{
       props.users.map(u => <li key={u.id}>
         <div>
-          <div><img src={u.photos.small} alt="" width="50px" /></div>
+          <div><img src={u.photos.small !== null ? u.photos.small : userPhoto} alt="" width="50px" /></div>
           {
             u.followed
               ? <button onClick={() => props.unfollow(u.id)}>Unfollow</button>
