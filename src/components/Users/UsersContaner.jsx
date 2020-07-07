@@ -4,7 +4,7 @@ import * as axios from 'axios';
 
 import { connect } from 'react-redux';
 import { followAC, unfollowAC, setUsersAC, setCurrentPageAC, setTotalUsersCountAC, toggleIsFetchingAC } from '../../redux/users-reducer';
-import Preloader from '../Preloader/Preloader';
+import Preloader from '../common/Preloader/Preloader';
 
 
 
