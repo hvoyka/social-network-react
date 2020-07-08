@@ -4,12 +4,12 @@ import { Route } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Sidebar from './components/Sidebar/Sidebar';
 
-import Profile from './components/Profile/Profile';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
 import UsersContainer from './components/Users/UsersContaner';
+import ProfileContainer from './components/Profile/ProfileContainer';
 
 
 function App(props) {
@@ -24,7 +24,7 @@ function App(props) {
               <DialogsContainer/>
           </Route>
           <Route path="/profile">
-              <Profile/>
+              <ProfileContainer/>
           </Route>
           <Route path="/users">
               <UsersContainer/>
