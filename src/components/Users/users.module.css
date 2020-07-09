@@ -1,7 +1,8 @@
 
 .pagination{
   padding: 10px; 
-
+  display: flex;
+  flex-wrap: wrap;
 }
 .pagination span{
   padding: 5px; 
