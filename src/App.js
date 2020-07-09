@@ -23,7 +23,7 @@ function App(props) {
           <Route path="/dialogs">
               <DialogsContainer/>
           </Route>
-          <Route path="/profile/:userId">
+          <Route path="/profile/:userId?">
               <ProfileContainer/>
           </Route>
           <Route path="/users">
