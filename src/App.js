@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import { Route } from 'react-router-dom';
-import Header from './components/Header/Header';
 import Sidebar from './components/Sidebar/Sidebar';
 
 import DialogsContainer from './components/Dialogs/DialogsContainer';
@@ -10,13 +9,14 @@ import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
 import UsersContainer from './components/Users/UsersContaner';
 import ProfileContainer from './components/Profile/ProfileContainer';
+import HeaderContainer from './components/Header/HeaderContainer';
 
 
 function App(props) {
 
   return (
       <div className='app-wrapper'>
-        <Header />
+        <HeaderContainer />
         <Sidebar/>
         <div className='app-wrapper__content'>
 
