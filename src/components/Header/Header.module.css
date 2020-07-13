@@ -2,8 +2,13 @@
 .header{
   grid-area: h;
   background-color: aliceblue;
+  display: flex;
+  justify-content: space-between;
 }
 .logo{
   width: 60px;
   height: auto;
+}
+.loginBlock{
+
 }
