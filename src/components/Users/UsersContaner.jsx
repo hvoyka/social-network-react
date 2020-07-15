@@ -1,6 +1,6 @@
 import React, { useDebugValue } from 'react';
 import Users from './Users'
-import * as axios from 'axios';
+
 
 import { connect } from 'react-redux';
 import { follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching } from '../../redux/users-reducer';
