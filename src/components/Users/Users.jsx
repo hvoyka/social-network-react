@@ -12,7 +12,6 @@ let Users = (props) => {
   }
 
 
-
   return (
     <div>
       <div className={css.pagination}>
@@ -30,22 +29,27 @@ let Users = (props) => {
               <NavLink to={'/profile/' + u.id}>
                 <div><img src={u.photos.small !== null ? u.photos.small : userPhoto} alt="" width="50px" /></div>
               </NavLink>
-              {
+              { 
                 u.followed
-                  ? <button onClick={
+                  ? <button disabled={props.isFollowingProcess} onClick={
                     () => {
+                      
+                      props.followingInProcess(true);
                       usersAPI.unfollowUser(u.id).then(data => {
                           if (data.resultCode === 0) {
                             props.unfollow(u.id)
                           }
+                          props.followingInProcess(false);
                         });                      
                     }
                   }>Unfollow</button>
-                  : <button onClick={
+                  : <button disabled={ props.isFollowingProcess} onClick={
                     () => {
+                      props.followingInProcess(true);
                       usersAPI.followUser(u.id).then(data => {
                         if (data.resultCode === 0) {
-                          props.follow(u.id)
+                          props.follow(u.id);
+                          props.followingInProcess(false);
                         }
                       });  
                     }
