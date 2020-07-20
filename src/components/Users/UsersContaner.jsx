@@ -12,24 +12,11 @@ import { usersAPI } from '../../api/api';
 class UsersContainer extends React.Component {
 
   componentDidMount() {
-      this.props.getUsersThunkCreator();
-      /* this.props.toggleIsFetching(true);
-
-      usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
-          this.props.toggleIsFetching(false);
-          this.props.setUsers(data.items);
-          this.props.setTotalUsersCount(Math.ceil(data.totalCount / this.props.pageSize));
-        }); */
+      this.props.getUsersThunkCreator(this.props.currentPage, this.props.pageSize);
   }
 
   onPageChanged = (pageNumber) => {
-    this.props.setCurrentPage(pageNumber);
-    this.props.toggleIsFetching(true);
-
-    usersAPI.getUsers(pageNumber, this.props.pageSize).then(data => {
-        this.props.toggleIsFetching(false);
-        this.props.setUsers(data.items);
-      });
+    this.props.getUsersThunkCreator(pageNumber, this.props.pageSize);
   }
 
   render() {   
