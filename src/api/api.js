@@ -13,9 +13,9 @@ export const usersAPI = {
     return instance.get(`users?page=${currentPage}&count=${pageSize}`).then(response => response.data);
   },
   unfollowUser(id) {
-    return instance.delete(`follow/${id}`).then(response => response.data)
+    return instance.delete(`follow/${id}`).then(response => response.data);
   },
   followUser(id) {
-    return instance.post(`follow/${id}`).then(response => response.data)
+    return instance.post(`follow/${id}`).then(response => response.data);
   },
 }
