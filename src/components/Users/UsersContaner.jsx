@@ -1,4 +1,4 @@
-import React, { useDebugValue } from 'react';
+import React from 'react';
 import Users from './Users'
 import { connect } from 'react-redux';
 import { follow, unfollow, toggleFollowingProgress, getUsers } from '../../redux/users-reducer';
