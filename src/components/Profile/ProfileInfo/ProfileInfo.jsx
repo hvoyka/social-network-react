@@ -4,16 +4,13 @@ import Preloader from '../../common/Preloader/Preloader';
 
 
 const ProfileInfo = (props) => {
-
-  if(!props.profile){
-    return <Preloader/>
+  if (!props.profile) {
+    return <Preloader />
   }
   return (
     <div>
-      <div className='content__img-box'>
-        <img className='content__img' src='https://www.w3schools.com/howto/img_snow_wide.jpg' />
-      </div>
       <div className={css.profile}>
+        <div className={css.name}>{props.profile.fullName}</div>
         <img className={css.avatar} src={props.profile.photos.small} />
         <div className='profile__info'>{props.profile.aboutMe}</div>
       </div>
