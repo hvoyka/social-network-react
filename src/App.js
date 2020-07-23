@@ -10,6 +10,7 @@ import Settings from './components/Settings/Settings';
 import UsersContainer from './components/Users/UsersContaner';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
+import LoginPage from './components/Login/Login';
 
 
 function App(props) {
@@ -33,6 +34,7 @@ function App(props) {
           <Route path='/news' component={News} />
           <Route path='/music' component={Music} />
           <Route path='/settings' component={Settings} />
+          <Route path='/login' component={LoginPage} />
         </div>
       </div>
   );
