@@ -29,10 +29,6 @@ const Dialogs = (props) => {
 
   let messageComponentsArr = props.dialogsPage.messages.map((m) => <Message message={m.message} key={m.id}/>);
 
- if(!props.isAuth){
-   return <Redirect to="/login"/>
- }
-
   return (
     <div className={css.dialogs}>
       <ul className={css.items}>
