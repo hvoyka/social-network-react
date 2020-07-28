@@ -14,3 +14,30 @@
   background-color: coral;
   position: relative;
 }
+.app-wrapper::before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  width: 650px;
+  height: 650px;
+  background-image: url(./assets/svg/fone-bubble1.svg);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: contain;
+  transform-origin: center center;
+}
+
+.app-wrapper::after {
+  position: absolute;
+  content: "";
+  left: 50%;
+  top: 10%;
+  width: 650px;
+  height: 650px;
+  background-image: url(./assets/svg/fone-bubble2.svg);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: contain;
+  transform-origin: center center;
+}
