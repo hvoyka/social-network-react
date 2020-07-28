@@ -10,7 +10,13 @@
   text-decoration: none;
   padding: 5px 0 5px 40px;
 }
+.item a:hover{ 
+  color: #00a359;
+}
 .active{
-  color: red;
-  background-color: springgreen;
+  color: #fff;
+  background-color: #00a359;
+}
+a.active:hover{ 
+  color: #002c3f;
 }
