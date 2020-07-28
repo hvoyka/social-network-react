@@ -1,9 +1,13 @@
 body{
   margin: 0;
   padding: 0;
+  color: #002c3f;
 }
 *,
 *:after,
 *:before{
   box-sizing: border-box;
+}
+a{
+  color: #002c3f;
 }

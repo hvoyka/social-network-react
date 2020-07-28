@@ -11,33 +11,29 @@
 }
 .app-wrapper__content{
   grid-area: c;
-  background-color: coral;
+  border-radius: 5px;
+  border: 2px solid #00a359;
   position: relative;
 }
-.app-wrapper::before {
+.app-wrapper::before, .app-wrapper::after{
   position: absolute;
   content: "";
-  left: 0;
-  top: 0;
   width: 650px;
   height: 650px;
-  background-image: url(./assets/svg/fone-bubble1.svg);
   background-repeat: no-repeat;
   background-position: 0 0;
   background-size: contain;
   transform-origin: center center;
+  z-index: -1;
+  left: 0;
+  top: 0;
+}
+.app-wrapper::before {
+  background-image: url(./assets/svg/fone-bubble1.svg);
 }
 
 .app-wrapper::after {
-  position: absolute;
-  content: "";
   left: 50%;
   top: 10%;
-  width: 650px;
-  height: 650px;
   background-image: url(./assets/svg/fone-bubble2.svg);
-  background-repeat: no-repeat;
-  background-position: 0 0;
-  background-size: contain;
-  transform-origin: center center;
 }

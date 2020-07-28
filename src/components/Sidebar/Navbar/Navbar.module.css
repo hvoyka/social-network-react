@@ -8,7 +8,6 @@
 .item a{
   display: block;
   text-decoration: none;
-  color: white;
   padding: 5px 0 5px 40px;
 }
 .active{
