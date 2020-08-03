@@ -2,15 +2,28 @@ import React from 'react';
 import css from './ProfileInfo.module.css';
 
 
-const ProfileStatus = (props) => {
-  return (
-    <div className={css.status}>
-      <div>
-        <span>{props.status}</span>
-      </div>
-      <div>
-        <input value={props.status}/>
-      </div>
-    </div>);
+class ProfileStatus extends React.Component {
+
+  state = {
+    editMode: false
+  }
+
+  render() {
+    return (
+      <div className={css.status}>
+        {!this.state.editMode &&
+          <div>
+            <span>{this.props.status}</span>
+          </div>
+        }
+        {this.state.editMode &&
+          <div>
+            <input value={this.props.status} />
+          </div>
+        }
+
+      </div>);
+  }
+
 }
 export default ProfileStatus;
