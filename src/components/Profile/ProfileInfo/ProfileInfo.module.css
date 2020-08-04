@@ -16,3 +16,11 @@
 .profileInfo{
   display: flex;
 }
+.staticStatus{
+  display: block;
+  background-color: #00a359;
+  color: #fff;
+  border-radius: 5px;
+  min-height: 20px;
+  padding:  5px;
+}
