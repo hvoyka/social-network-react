@@ -5,14 +5,14 @@ const LoginForm = (props) => {
   return (
     <form>
       <div>
-        <input placeholder={"Login"} />
+        <Field name="login" placeholder="Login" component="input" />
       </div>
       <div>
-        <input placeholder={"Password"} />
+        <Field name="password" placeholder="Password" component="input" />
       </div>
       <div>
         <label>
-          <input type={"checkbox"} />
+          <Field name="rememberMe" type="checkbox" component="input" />
             Remember Me
           </label>
       </div>
