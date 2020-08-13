@@ -1,6 +1,5 @@
 
 const ADD_DIALOG_MESSAGE = 'ADD-DIALOG-MESSAGE';
-const TYPE_DIALOG_TEXT = 'TYPE-DIALOG-TEXT';
 
 let initialState = {
   dialogs: [
@@ -17,7 +16,6 @@ let initialState = {
     { id: 3, message: 'Yo!' },
     { id: 4, message: 'Yo!' },
   ],
-  newDialogMessage: 'Dialog msg!'
 };
 
 export const dialogReducer = (state = initialState, action) => {
@@ -25,16 +23,12 @@ export const dialogReducer = (state = initialState, action) => {
     case ADD_DIALOG_MESSAGE: 
       let newMessage = {
         id: 5,
-        message: state.newDialogMessage
+        message: action.newMessageBody
       }
       return {
         ...state,
-        newDialogMessage: '',
         messages: [...state.messages, newMessage]
       };
-
-    case TYPE_DIALOG_TEXT:      
-      return {...state, newDialogMessage:  action.text};
 
     default:
       return state;
@@ -42,5 +36,4 @@ export const dialogReducer = (state = initialState, action) => {
 
 }
 
-export const addDialogMessageActionCreator = () => ({ type: ADD_DIALOG_MESSAGE });
-export const typeDialogMessageActionCreator = (text) => ({ type: TYPE_DIALOG_TEXT, text: text });
+export const addDialogMessageActionCreator = (newMessageBody) => ({ type: ADD_DIALOG_MESSAGE, newMessageBody });
