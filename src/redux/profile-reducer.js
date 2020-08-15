@@ -1,12 +1,10 @@
 import { profileAPI } from '../api/api';
 
 const ADD_POST = 'ADD-POST';
-const TYPE_POST_TEXT = 'TYPE-POST-TEXT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_USER_STATUS = 'SET_USER_STATUS';
 
 let initialState = {
-  newPostMessage: 'hello!',
   posts: [
     { id: 1, message: 'Hi, how are you?', likesCount: 12 },
     { id: 2, message: 'It\'s my first post', likesCount: 5 },
