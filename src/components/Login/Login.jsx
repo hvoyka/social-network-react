@@ -14,7 +14,7 @@ const LoginForm = (props) => {
       </div>
       <div>
         <label>
-          <Field name="rememberMe" type="checkbox" component="input" />
+          <Field name="rememberMe" type="checkbox" component={Input} />
             Remember Me
           </label>
       </div>
